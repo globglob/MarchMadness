@@ -10,20 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311160316) do
+ActiveRecord::Schema.define(:version => 20110312181038) do
+
+  create_table "draft_picks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "draft_order"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "draft_picks", ["user_id"], :name => "index_draft_picks_on_user_id"
 
   create_table "games", :force => true do |t|
-    t.integer  "team1_id"
-    t.integer  "team2_id"
-    t.integer  "team1_score"
-    t.integer  "team2_score"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
+    t.integer  "winner_score"
+    t.integer  "loser_score"
     t.integer  "round"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "games", ["team1_id"], :name => "index_games_on_team1_id"
-  add_index "games", ["team2_id"], :name => "index_games_on_team2_id"
+  add_index "games", ["winner_id", "loser_id"], :name => "index_games_on_winner_id_and_loser_id"
 
   create_table "pages", :force => true do |t|
     t.integer  "subject_id"
@@ -51,17 +60,6 @@ ActiveRecord::Schema.define(:version => 20110311160316) do
 
   add_index "sections", ["page_id"], :name => "index_sections_on_page_id"
 
-  create_table "squads", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.integer  "pick_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "squads", ["team_id"], :name => "index_squads_on_team_id"
-  add_index "squads", ["user_id"], :name => "index_squads_on_user_id"
-
   create_table "subjects", :force => true do |t|
     t.string   "name"
     t.integer  "position"
@@ -71,12 +69,15 @@ ActiveRecord::Schema.define(:version => 20110311160316) do
   end
 
   create_table "teams", :force => true do |t|
-    t.string   "name",       :limit => 50
-    t.string   "nickname",   :limit => 50
+    t.integer  "draft_pick_id"
+    t.string   "name",          :limit => 50
+    t.string   "nickname",      :limit => 50
     t.integer  "seed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "teams", ["draft_pick_id"], :name => "index_teams_on_draft_pick_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name", :limit => 25
