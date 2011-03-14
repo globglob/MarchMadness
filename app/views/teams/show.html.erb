@@ -1,0 +1,33 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="team show">
+  <h2>Show Team</h2>
+
+  <table summary="Team detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @team.name %></td>
+    </tr>
+    <tr>
+      <th>Seed</th>
+      <td><%= @team.seed %></td>
+    </tr>
+    <tr>
+      <th>Draft_pick_id</th>
+      <td><%= @team.draft_pick_id %></td>
+    </tr>
+	<tr>
+      <th>Nickname</th>
+      <td><%= @team.nickname %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @team.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @team.updated_at %></td>
+    </tr>
+  </table>
+  
+</div>

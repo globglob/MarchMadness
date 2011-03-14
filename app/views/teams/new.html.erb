@@ -1,0 +1,33 @@
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="team new">
+  <h2>Create Team</h2>
+
+  <%= form_for(:team, :url => {:action => 'create'}) do |f| %>
+  
+    <table summary="Team form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Seed</th>
+        <td><%= f.text_field(:seed) %></td>
+      </tr>
+      <tr>
+        <th>Draft_pick_id</th>
+        <td><%= f.text_field(:draft_pick_id) %></td>
+      </tr>
+      <tr>
+        <th>Nickname</th>
+        <td><%= f.text_field(:nickname) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Create Team") %>
+    </div>
+    
+  <% end %>
+</div>
