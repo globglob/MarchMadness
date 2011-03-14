@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-	
+  layout 'user'
   def index
   	list
   	render('list')
