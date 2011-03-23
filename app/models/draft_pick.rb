@@ -1,4 +1,4 @@
 class DraftPick < ActiveRecord::Base
-	has_one :team
+	belongs_to :team
 	belongs_to :user
 end

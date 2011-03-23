@@ -1,0 +1,14 @@
+<% @page_title = "Edit Pick"%>
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="pick edit">
+  <h2>Update Pick</h2>
+
+  <%= form_for(:draft_pick, :url => {:action => 'update', :id =>@draft_pick.id}) do |f| %>
+  <%= render(:partial => 'form', :locals => {:f => f})%>
+    <div class="form-buttons">
+      <%= submit_tag("Update Pick") %>
+    </div>
+    
+  <% end %>
+</div>

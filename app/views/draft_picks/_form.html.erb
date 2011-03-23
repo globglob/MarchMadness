@@ -1,0 +1,18 @@
+    <table summary="Draft_pick form fields">
+      <tr>
+        <th>Draft order</th>
+        <td><%= f.text_field(:draft_order) %></td>
+      </tr>
+      <tr>
+        <th><%= f.label(:user_id, "User") %></th>
+        <td><%= f.select(:user_id,@users.collect {|s| [s.first_name, s.id]}) %></td>
+      </tr>
+      <tr>
+        <th><%= f.label(:team_id, "Team") %></th>
+        <td><%= f.select(:team_id,@teams.collect {|t| [t.name, t.id]}) %></td>
+      </tr>
+      <tr>
+        <th>Year</th>
+        <td><%= f.text_field(:year) %></td>
+      </tr>
+    </table>

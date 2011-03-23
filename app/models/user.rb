@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
 	
-	 belongs_to :draft
-	 has_many :teams
+	 has_many :draft_picks
+	 has_many :teams, :through => :draft_picks
 end

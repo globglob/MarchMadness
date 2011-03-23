@@ -1,4 +1,4 @@
-
+<% @page_title = "Create Owner"%>
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
 <div class="user new">
@@ -6,25 +6,8 @@
 
   <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
   
-    <table summary="User form fields">
-      <tr>
-        <th>First name</th>
-        <td><%= f.text_field(:first_name) %></td>
-      </tr>
-      <tr>
-        <th>Last name</th>
-        <td><%= f.text_field(:last_name) %></td>
-      </tr>
-      <tr>
-        <th>Email</th>
-        <td><%= f.text_field(:email) %></td>
-      </tr>
-      <tr>
-        <th>Squad name</th>
-        <td><%= f.text_field(:password) %></td>
-      </tr>
-    </table>
-    
+  <%= render(:partial => 'form',:locals => {:f => f})%>    
+  
     <div class="form-buttons">
       <%= submit_tag("Create Owner") %>
     </div>

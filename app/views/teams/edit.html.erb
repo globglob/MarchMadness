@@ -1,30 +1,11 @@
-
+<% @page_title = "Edit Team"%>
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
 <div class="team edit">
   <h2>Update Team</h2>
 
   <%= form_for(:team, :url => {:action => 'update', :id =>@team.id}) do |f| %>
-  
-    <table summary="Team form fields">
-      <tr>
-        <th>Name</th>
-        <td><%= f.text_field(:name) %></td>
-      </tr>
-      <tr>
-        <th>Seed</th>
-        <td><%= f.text_field(:seed) %></td>
-      </tr>
-      <tr>
-        <th>Draft_pick_id</th>
-        <td><%= f.text_field(:draft_pick_id) %></td>
-      </tr>
-      <tr>
-        <th>Nickname</th>
-        <td><%= f.text_field(:nickname) %></td>
-      </tr>
-    </table>
-    
+  <%= render(:partial => 'form', :locals => {:f => f})%>
     <div class="form-buttons">
       <%= submit_tag("Update Team") %>
     </div>

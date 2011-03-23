@@ -7,14 +7,16 @@
   <table class="listing" summary="user list">
     <tr class="header">
       <th>Name</th>
+      <th>Nickname</th>
       <th>Seed</th>
-      <th>Draft_pick_id</th>
+      <th>Region</th>
     </tr>
     <% @teams.each do |team| %>
     <tr>
       <td><%= team.name %></td>
+      <td><%= team.nickname %></td>
       <td><%= team.seed %></td>
-      <td><%= team.draft_pick_id %></td>
+      <td><%= team.region %></td>
       
       <td class="actions">
         <%= link_to("Show", {:action => 'show', :id => team.id}, :class => 'action show') %>

@@ -1,3 +1,4 @@
+<% @page_title = "Show Team"%>
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
 <div class="team show">
@@ -8,19 +9,19 @@
       <th>Name</th>
       <td><%= @team.name %></td>
     </tr>
-    <tr>
-      <th>Seed</th>
-      <td><%= @team.seed %></td>
-    </tr>
-    <tr>
-      <th>Draft_pick_id</th>
-      <td><%= @team.draft_pick_id %></td>
-    </tr>
 	<tr>
       <th>Nickname</th>
       <td><%= @team.nickname %></td>
     </tr>
     <tr>
+    <tr>
+      <th>Seed</th>
+      <td><%= @team.seed %></td>
+    </tr>
+    <tr>
+      <th>Region</th>
+      <td><%= @team.region %></td>
+    </tr>
       <th>Created</th>
       <td><%= @team.created_at %></td>
     </tr>

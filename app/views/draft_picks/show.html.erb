@@ -1,0 +1,34 @@
+<% @page_title = "Show Pick"%>
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="pick show">
+  <h2>Show Pick</h2>
+
+  <table summary="Pick detail view">
+    <tr>
+      <th>Draft order</th>
+      <td><%= @draft_pick.draft_order %></td>
+    </tr>
+    <tr>
+      <th>User ID</th>
+      <td><%= @draft_pick.user_id %></td>
+    </tr>
+    <tr>
+      <th>Team ID</th>
+      <td><%= @draft_pick.team_id %></td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td><%= @draft_pick.year %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @draft_pick.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @draft_pick.updated_at %></td>
+    </tr>
+  </table>
+  
+</div>

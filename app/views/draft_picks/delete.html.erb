@@ -1,0 +1,18 @@
+<% @page_title = "Delete Pick"%>
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="draft_pick delete">
+  <h2>Delete Draft Pick</h2>
+
+  <%= form_for(:draft_pick, :url => {:action => 'destroy', :id =>@draft_pick.id}) do |f| %>
+  
+	<p>Are you sure you want to permanently delete this pick?</p>
+	
+	<p class="reference-name"><%= @draft_pick.name %></p>
+	    
+    <div class="form-buttons">
+      <%= submit_tag("Delete Pick") %>
+    </div>
+    
+  <% end %>
+</div>

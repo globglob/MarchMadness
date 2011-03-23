@@ -2,11 +2,12 @@ class CreateDraftPicks < ActiveRecord::Migration
   def self.up
     create_table :draft_picks do |t|
 	  t.integer "user_id"
+	  t.references :team
 	  t.integer "draft_order"
       t.integer "year"
       t.timestamps
     end
-    add_index("draft_picks", "user_id")
+	add_index :draft_picks, ["user_id","team_id"]
   end
 
   def self.down
